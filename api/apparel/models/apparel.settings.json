@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "apparels",
+  "info": {
+    "name": "Apparel",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "maxLength": 250,
+      "minLength": 50
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "colors": {
+      "via": "apparel",
+      "collection": "colors"
+    }
+  }
+}
